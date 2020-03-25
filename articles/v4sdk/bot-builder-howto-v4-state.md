@@ -70,10 +70,10 @@ The first step in setting up state management is to define the classes containin
 
 The following code examples show the definitions for the `UserProfile` and `ConversationData` classes.
 
-**user_profile.py**
+**user_profile.py**  
 [!code-python[user_profile](~/../botbuilder-samples/samples/python/45.state-management/data_models/user_profile.py?range=5-7)]
 
-**conversation_data.py**
+**conversation_data.py**  
 [!code-python[conversation_data](~/../botbuilder-samples/samples/python/45.state-management/data_models/conversation_data.py?range=5-14)]
 
 ---
@@ -106,10 +106,10 @@ Next, we register `MemoryStorage` that is then used to create `UserState` and `C
 
 Next, we register `MemoryStorage` that is used to create `UserState` and `ConversationState` objects. These are created in **app.py** and consumed when the bot is created.
 
-**app.py**
+**app.py**  
 [!code-python[app.py](~/../botbuilder-samples/samples/python/45.state-management/app.py?range=67-70)]
 
-**bots/state_management_bot.py**
+**bots/state_management_bot.py**  
 [!code-python[bot constructor](~/../botbuilder-samples/samples/python/45.state-management/bots/state_management_bot.py?range=13-25)]
 
 ---
@@ -127,14 +127,14 @@ Now we create property accessors using the `CreateProperty` method that provides
 
 Now we create property accessors for `UserState` and `ConversationState`. Each state property accessor allows you to get or set the value of the associated state property. We use each accessor to load the associated property from storage and retrieve its current state from cache.
 
-**bots/stateManagementBot.js**
+**bots/stateManagementBot.js**  
 [!code-javascript[Create accessors](~/../BotBuilder-Samples/samples/javascript_nodejs/45.state-management/bots/stateManagementBot.js?range=13-15)]
 
 ## [Python](#tab/python)
 
 Now we create property accessors for `UserProfile` and `ConversationData`. Each state property accessor allows you to get or set the value of the associated state property. We use each accessor to load the associated property from storage and retrieve its current state from cache.
 
-**bots/state_management_bot.py**
+**bots/state_management_bot.py**  
 [!code-python[Create accessors](~/../botbuilder-samples/samples/python/45.state-management/bots/state_management_bot.py?range=27-30)]
 
 ---
@@ -163,12 +163,12 @@ Before we exit the turn handler, we use the state management objects' _SaveChang
 - If userProfile.Name is empty and conversationData.PromptedUserForName is _false_, we ask for the user's name.
 - If userProfile.Name was previously stored, we retrieve message time and channel Id from the user input, echo all data back to the user, and store the retrieved data within conversation state.
 
-**bots/stateManagementBot.js**
+**bots/stateManagementBot.js**  
 [!code-javascript[OnMessage](~/../BotBuilder-Samples/samples/javascript_nodejs/45.state-management/bots/stateManagementBot.js?range=21-58)]
 
 Before we exit each dialog turn, we use the state management objects' _saveChanges()_ method to persist all changes by writing state back out to storage.
 
-**bots/stateManagementBot.js**
+**bots/stateManagementBot.js**  
 [!code-javascript[OnDialog](~/../BotBuilder-Samples/samples/javascript_nodejs/45.state-management/bots/stateManagementBot.js?range=72-81)]
 
 ## [Python](#tab/python)
@@ -177,12 +177,12 @@ Before we exit each dialog turn, we use the state management objects' _saveChang
 - If `user_profile.name` is empty and `conversation_data.prompted_for_user_name` is *false*,the bot asks for the user's name.
 - If `user_profile.name` was previously stored, the bot retrieves **message time** and **channel Id** from the user input, echoes the data back to the user, and stores the retrieved data in the conversation state.
 
-**bots/state_management_bot.py**
+**bots/state_management_bot.py**  
 [!code-python[state_message_activity](~/../botbuilder-samples/samples/python/45.state-management/bots/state_management_bot.py?range=47-89)]
 
 Before exiting each dialog turn, the bot uses the state management objects' `save_changes` method to persist all changes by writing state information in the storage.
 
-**bots/state_management_bot.py**
+**bots/state_management_bot.py**  
 [!code-python[state_storage](~/../botbuilder-samples/samples/python/45.state-management/bots/state_management_bot.py?range=32-36)]
 
 ---

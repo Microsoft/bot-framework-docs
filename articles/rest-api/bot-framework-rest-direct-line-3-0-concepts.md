@@ -11,7 +11,7 @@ ms.date: 01/06/2019
 
 # Key concepts in Direct Line API 3.0
 
-You can enable communication between your bot and your own client application by using the Direct Line API. This article introduces key concepts in Direct Line API 3.0 and provides information about relevant developer resources.
+You can enable communication between your bot and your own client application by using the Direct Line API. This article introduces key concepts in Direct Line API 3.0 and provides information about relevant developer resources. You can build a client using the SDK, REST API, or Web Chat. 
 
 ## Authentication
 

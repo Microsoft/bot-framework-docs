@@ -131,7 +131,7 @@ Ensure that the Facebook Page associated with this bot is published. Status appe
 >
 > Facebook will only consider integrations with limited access to Workplace data (low sensitivity permissions) eligible for continued use until December 31, 2020 if such integrations have completed and passed Security RFI and if the developer reaches out before January 15, 2020 via [Direct Support](https://my.workplace.com/work/admin/direct_support) to request continued use of the app.
 >
-> Bot Framework adapters are available for [JavaScript/Node.js](https://aka.ms/botframework-workplace-adapter) and [C#/.NET](https://aka.ms/bf-workplace-csharp) bots.
+> Bot Framework adapters are available for [JavaScript/Node.js](https://aka.ms/npm-botbuilder-adapter-facebook) and [C#/.NET](https://aka.ms/botbuilder-dotnet-facebook-adapter) bots.
 
 Facebook Workplace is a business-oriented version of Facebook, which allows employees to easily connect and collaborate. It contains live videos, news feeds, groups, messenger, reactions, search, and trending posts. It also supports:
 
@@ -176,11 +176,11 @@ Create a [custom integration](https://developers.facebook.com/docs/workplace/cus
 
 ### Update your bot code with Facebook adapter
 
-Your bot's source code needs to be updated to include an adapter to communicate with Workplace by Facebook. Adapters are available for [JavaScript/Node.js](https://aka.ms/botframework-workplace-adapter) and [C#/.NET](https://aka.ms/bf-workplace-csharp) bots.
+Your bot's source code needs to be updated to include an adapter to communicate with Workplace by Facebook. Adapters are available for [JavaScript/Node.js](https://aka.ms/npm-botbuilder-adapter-facebook) and [C#/.NET](https://aka.ms/botbuilder-dotnet-facebook-adapter) bots.
 
 ### Provide Facebook credentials
 
-You will need to update appsettings.json of your bot with **Facebook App ID**, **Facebook App Secret** and **Page Access Token** values copied from the Facebook Workplace previously. Instead of a traditional pageID, use the numbers following the integrations name on its **About** page. Follow these instructions to update your bot source code in [JavaScript/Node.js](https://aka.ms/botframework-workplace-adapter) or [C#/.NET](https://aka.ms/bf-workplace-csharp).
+You will need to update appsettings.json of your bot with **Facebook App ID**, **Facebook App Secret** and **Page Access Token** values copied from the Facebook Workplace previously. Instead of a traditional pageID, use the numbers following the integrations name on its **About** page. Follow these instructions to update your bot source code in [JavaScript/Node.js](https://aka.ms/npm-botbuilder-adapter-facebook) or [C#/.NET](https://aka.ms/botbuilder-dotnet-facebook-adapter).
 
 ### Submit for review
 
@@ -199,7 +199,7 @@ If you receive a notification from Facebook about deprecation of a certain versi
 ## Connect a bot to Facebook using the Facebook adapter
 
 Use the Bot Framework Facebook adapter to connect your bot with Facebook Workplace. To connect to Facebook messenger, you can use the Facebook channel or the Facebook adapter.
-Facebook adapters are available for [JavaScript/Node.js](https://aka.ms/botframework-workplace-adapter) and [C#/.NET](https://aka.ms/bf-workplace-csharp) bots.
+Facebook adapters are available for [JavaScript/Node.js](https://aka.ms/npm-botbuilder-adapter-facebook) and [C#/.NET](https://aka.ms/botbuilder-dotnet-facebook-adapter) bots.
 
 In this article you will learn how to connect a bot to Facebook using the adapter.  This article will walk you through modifying the EchoBot sample to connect it to Facebook.
 

@@ -281,8 +281,10 @@ For more information on _Card Actions_, refer to the [Send a hero card](https://
 
 *Note: The Direct Line channel technically supports all cards, but it's up to the client to implement them*
 
-* ✔: Full Support
-* ⚠: Partial Support - Card May Not Send if it Contains Inputs/Buttons. Varies by Channel.
+* ✔: Supported - Card is supported fully with the exception that some channels only support a subset of CardActions and/or may limit the number of actions allowed on each card.  Varies by channel.
+* ⚠: Partial Support - Card may not be displayed at all if it contains inputs and/or buttons. Varies by channel.
 * ❌: No Support
 * 🔶: Card is Converted to Image
-* 🌐: Card is Converted to Unformatted Text With Links and/or Images and/or Media Does Not Play in Client
+* 🌐: Card is Converted to Unformatted Text - Links may not be clickable, images may not display, and/or media may not be playable. Varies by channel.
+
+These categories are intentionally broad and don't fully explain how every card feature is supported in each channel due to the many possible combinations of cards, features, and channels. Please use this table as a base reference, but test each of your cards in the desired channel(s).

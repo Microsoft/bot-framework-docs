@@ -39,7 +39,3 @@ Using Direct Line API 1.1, a client can receive messages by polling with `HTTP G
 The Bot Framework provides a client library that facilitates access to Direct Line API 1.1 via C#. To use the client library within a Visual Studio project, install the `Microsoft.Bot.Connector.DirectLine` <a href="https://www.nuget.org/packages/Microsoft.Bot.Connector.DirectLine/1.1.1" target="_blank">v1.x NuGet package</a>. 
 
 As an alternative to using the C# client library, you can generate your own client library in the language of your choice by using the <a href="https://docs.botframework.com/restapi/directline/swagger.json" target="_blank">Direct Line API 1.1 Swagger file</a>.
-
-### Web chat control 
-
-The Bot Framework provides a control that enables you to embed a Direct-Line-powered bot into your client application. For more information, see the <a href="https://github.com/Microsoft/BotFramework-WebChat" target="_blank">Microsoft Bot Framework WebChat control</a>.

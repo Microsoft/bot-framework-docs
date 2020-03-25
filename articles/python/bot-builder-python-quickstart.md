@@ -37,7 +37,7 @@ The last package, cookiecutter, will be used to generate your bot. Verify that c
 cookiecutter https://github.com/microsoft/botbuilder-python/releases/download/Templates/echo.zip
 ```
 
-This command creates an Echo Bot based on the Python [echo template](https://github.com/microsoft/botbuilder-python/tree/master/generators/app/templates/echo).
+This command creates an Echo Bot based on the Python [echo template](https://github.com/microsoft/BotBuilder-Samples/tree/master/generators/python/app/templates/echo).
 
 3. You will then be prompted for the *name* of the bot and a *description*. Name your bot `echo-bot` and set the description to `A bot that echoes back user response.` as shown below:
 
@@ -45,7 +45,7 @@ This command creates an Echo Bot based on the Python [echo template](https://git
 
 Copy the last four digits in the address on the last line (usually 3978) since you will be using them in the next step. You are now ready to start your bot.
 
-## Start you bot
+## Start your bot
 1. From a terminal navigate to the `echo-bot` folder where you saved your bot. Run `pip install -r requirements.txt` to install any required packages to run your bot.
 
 2. Once the packages are installed run `python app.py` to start your bot. You will know your bot is ready to test when you see  the last line shown in the screenshot below:

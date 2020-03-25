@@ -6,23 +6,24 @@ services: bot-service
 manager: kamrani
 ms.service: bot-service
 ms.topic: conceptual
-ms.author: kamrani 
+ms.author: kamrani
 ms.date: 07/25/2019
 ---
 
 # Create .NET Client to Connect to Direct Line App Service Extension
 
 This article describes how to create a .NET client in C# which connects to the direct line app service extension.
+Please, also read this companion article [Configure .NET bot for extension](bot-service-channel-directline-extension-net-bot.md).
 
 ## Gather your Direct Line Extension keys
 
 1. In your browser, navigate to the [Azure portal](https://portal.azure.com/)
 1. In the Azure portal, locate your **Azure Bot Service** resource
 1. Click on **Channels** to configure the bot’s channels
-1. If it is not already enabled, click on the **Direct Line** channel to enable it. 
+1. If it is not already enabled, click on the **Direct Line** channel to enable it.
 1. If it is already enabled, in the Connect to channels table click on the **Edit** link on the Direct Line row.
 1. Scroll to the Sites section. There is typically a Default Site unless you have deleted or renamed it.
-1. Click on the **Show link** to reveal one of the keys, then copy its value.
+1. Click on the **Show link** to reveal one of the keys, then copy and save its value. You will use this value in the next section.
 
     ![App service extension keys](./media/channels/direct-line-extension-extension-keys-net-client.png)
 
@@ -45,7 +46,7 @@ The preview NuGet packages needed to create a C# Direct line client can be found
 
 ## Create a C# Direct Line Client
 
-Interactions with the direct line app service extension happen differently than traditional Direct Line becuase most communication happens over a *WebSocket*. The updated direct line client includes helper classes for opening and closing a *WebSocket*, sending commands through the WebSocket, and receiving Activities back from the bot. This section describes how to create a simple C# client to interact with a bot.
+Interactions with the direct line app service extension happen differently than traditional Direct Line because most communication happens over a *WebSocket*. The updated direct line client includes helper classes for opening and closing a *WebSocket*, sending commands through the WebSocket, and receiving Activities back from the bot. This section describes how to create a simple C# client to interact with a bot.
 
 1. Create a new .NET Core 2.2 console application project in Visual Studio.
 1. Add the **DirectLine client NuGet** to your project
@@ -65,6 +66,10 @@ Interactions with the direct line app service extension happen differently than 
         new DirectLineClientCredentials(secret));
     var conversation = await tokenClient.Tokens.GenerateTokenForNewConversationAsync();
     ```
+
+    Notice the following:
+    - The endpoint value is the bot URL you obtained when you deployed the bot to Azure.  For more information, see [Configure .NET bot for extension](bot-service-channel-directline-extension-net-bot.md).
+    - The secret value shown as *YOUR_BOT_SECRET* is the value you saved earlier from the *sites section*.
 
 1. Once you have a conversation reference from generating a token, you can use this conversation ID to open a WebSocket with the new `StreamingConversations` property on the `DirectLineClient`. To do this you need to create a callback that will be invoked when the bot wants to send `ActivitySets` to the client:
 

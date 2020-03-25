@@ -26,6 +26,8 @@ The Bot Framework SDK v3 will be retired but existing V3 bot workloads will cont
 
 We highly recommend that you start migrating your V3 bots to V4. In order to support this migration we have produced related documentation and will provide extended support for migration initiatives via standard channels.
 
+If you can not migrate from a v3 bot to a v4 bot immediately, you may still want to take advantage of the additional functionality available in the v4 SDK. You can convert your v3 bot to a skill, and create a skill consumer bot based on the v4 SDK to pass messages to your v3 bot. For more information, see how to [convert a v3 bot to a skill](convert-to-skill-overview.md).
+
 ## Advantages
 
 - Richer, flexible and open architecture: Enables more flexible conversations design

@@ -2,13 +2,13 @@ Some channels provide features that cannot be implemented by using only message 
 
 This article describes how to use a message activity's channel data property to implement this channel-specific functionality:
 
-| Channel | Functionality |
-|----|----|
-| Email | Send and receive an email that contains body, subject, and importance metadata |
-| Slack | Send full fidelity Slack messages |
-| Facebook | Send Facebook notifications natively |
-| Telegram | Perform Telegram-specific actions, such as sharing a voice memo or a sticker |
-| Kik | Send and receive native Kik messages |
+| Channel  | Functionality                                                                  |
+| -------- | ------------------------------------------------------------------------------ |
+| Email    | Send and receive an email that contains body, subject, and importance metadata |
+| Slack    | Send full fidelity Slack messages                                              |
+| Facebook | Send Facebook notifications natively                                           |
+| Telegram | Perform Telegram-specific actions, such as sharing a voice memo or a sticker   |
+| Kik      | Send and receive native Kik messages                                           |
 
 > [!NOTE]
 > The value of an activity object's channel data property is a JSON object.
@@ -21,14 +21,14 @@ This article describes how to use a message activity's channel data property to 
 To create an email message, set the activity object's channel data property
 to a JSON object that contains these properties:
 
-| Property | Description |
-|----|----|
-| bccRecipients | A semicolon (;) delimited string of email addresses to add to the message's Bcc (blind carbon copy) field. |
-| ccRecipients | A semicolon (;) delimited string of email addresses to add to the message's Cc (carbon copy) field. |
-| htmlBody | An HTML document that specifies the body of the email message. See the channel's documentation for information about supported HTML elements and attributes. |
-| importance | The email's importance level. Valid values are **high**, **normal**, and **low**. The default value is **normal**. |
-| subject | The email's subject. See the channel's documentation for information about field requirements. |
-| toRecipients | A semicolon (;) delimited string of email addresses to add to the message's To field. |
+| Property      | Description                                                                                                                                                  |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| bccRecipients | A semicolon (;) delimited string of email addresses to add to the message's Bcc (blind carbon copy) field.                                                   |
+| ccRecipients  | A semicolon (;) delimited string of email addresses to add to the message's Cc (carbon copy) field.                                                          |
+| htmlBody      | An HTML document that specifies the body of the email message. See the channel's documentation for information about supported HTML elements and attributes. |
+| importance    | The email's importance level. Valid values are **high**, **normal**, and **low**. The default value is **normal**.                                           |
+| subject       | The email's subject. See the channel's documentation for information about field requirements.                                                               |
+| toRecipients  | A semicolon (;) delimited string of email addresses to add to the message's To field.                                                                        |
 
 > [!NOTE]
 > Messages that your bot receives from users via the Email channel may
@@ -255,10 +255,10 @@ To create interactive menus, use the following JSON:
 To create a Facebook notification, 
 set the activity object's channel data property to a JSON object that specifies these properties:
 
-| Property | Description |
-|----|----|
-| notification_type | The type of notification (e.g., **REGULAR**, **SILENT_PUSH**, **NO_PUSH**).
-| attachment | An attachment that specifies an image, video, or other multimedia type, or a templated attachment such as a receipt. |
+| Property          | Description                                                                                                          |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------- |
+| notification_type | The type of notification (e.g., **REGULAR**, **SILENT_PUSH**, **NO_PUSH**).                                          |
+| attachment        | An attachment that specifies an image, video, or other multimedia type, or a templated attachment such as a receipt. |
 
 > [!NOTE]
 > For details about format and contents of the `notification_type` property and `attachment` property, see the 
@@ -285,9 +285,9 @@ To create a message that implements Telegram-specific actions,
 such as sharing a voice memo or a sticker, 
 set the activity object's channel data property to a JSON object that specifies these properties: 
 
-| Property | Description |
-|----|----|
-| method | The Telegram Bot API method to call. |
+| Property   | Description                             |
+| ---------- | --------------------------------------- |
+| method     | The Telegram Bot API method to call.    |
 | parameters | The parameters of the specified method. |
 
 These Telegram methods are supported: 
@@ -356,12 +356,69 @@ This snippet shows an example of a `channelData` property that specifies an arra
 ]
 ```
 
+When a Telegram method is implemented, your bot will receive a response message
+in which the channel data property is populated with a JSON object. This response object specifies
+the contents of the original message, including an `update_id` and, at most, one optional
+parameter. For information about receiving incoming responses, see
+<a href="https://core.telegram.org/bots/api#getting-updates" target="_blank">Getting updates</a>.
+
+This snippet shows an example of the `channelData` property in the message that a bot receives
+when a poll is created.
+
+```json
+"channelData": {
+    "update_id": 43517575,
+    "message": {
+        "message_id": 618,
+        "from": {
+            "id": 803613355,
+            "is_bot": false,
+            "first_name": "Joe",
+            "last_name": "Doe",
+            "username": "jdoe",
+            "language_code": "en"
+        },
+        "chat": {
+            "id": 803613355,
+            "first_name": "Joe",
+            "last_name": "Doe",
+            "username": "jdoe",
+            "type": "private"
+        },
+        "date": 1582577834,
+        "poll": {
+        "id": "5089525250643722242",
+        "question": "How to win?",
+        "options": [
+            {
+                "text": "Be the best",
+                "voter_count": 0
+            },
+            {
+                "text": "Help those in need",
+                "voter_count": 0
+            },
+            {
+                "text": "All of the above",
+                "voter_count": 0
+            }
+        ],
+        "total_voter_count": 0,
+        "is_closed": false,
+        "is_anonymous": true,
+        "type": "regular",
+        "allows_multiple_answers": false
+        }
+    }
+}
+```
+
 ## Create a native Kik message
 
 To create a native Kik message, set the activity object's channel data property to a JSON object that specifies this property:
 
-| Property | Description |
-|----|----|
+| Property | Description                                                                                                                                                                 |
+| -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | messages | An array of Kik messages. For details about Kik message format, see <a href="https://dev.kik.com/#/docs/messaging#message-formats" target="_blank">Kik Message Formats</a>. |
 
 This snippet shows an example of the `channelData` property for a native Kik message.
@@ -394,9 +451,9 @@ This snippet shows an example of the `channelData` property for a native Kik mes
 
 To create a message that implements LINE-specific message types (such as sticker, templates, or LINE specific action types like opening the phone camera), set the activity object's channel data property to a JSON object that specifies LINE message types and action types. 
 
-| Property | Description |
-|----|----|
-| type | The LINE action/message type name |
+| Property | Description                       |
+| -------- | --------------------------------- |
+| type     | The LINE action/message type name |
 
 These LINE message types are supported:
 * Sticker

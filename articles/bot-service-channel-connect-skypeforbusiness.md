@@ -16,5 +16,5 @@ Skype for Business Online keeps you connected with co-workers and business partn
 
 > [!IMPORTANT]
 > **Skype for Business channel of Bot Framework was deprecated on June 30, 2019.**
-> 
-> Skype for Business channel stopped accepting new bots on June 30, 2019.  Existing bots continued operating through October 31, 2019.  The channel is currently being deprecated, and no production loads should be using it.  Microsoft Teams is the preferred communication tool from Microsoft.  Learn how to [connect your bot to Microsoft Teams](https://msdn.microsoft.com/microsoft-teams/bots).
+>
+> Skype for Business channel stopped accepting new bots on June 30, 2019.  Existing bots continued operating through October 31, 2019.  The channel is currently being deprecated, and no production loads should be using it.  Microsoft Teams is the preferred communication tool from Microsoft.  Learn how to [connect your bot to Microsoft Teams](https://aka.ms/channel-connect-teams).

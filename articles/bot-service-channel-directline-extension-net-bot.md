@@ -14,7 +14,8 @@ ms.date: 01/16/2020
 
 [!INCLUDE[applies-to-v4](includes/applies-to.md)]
 
-This article describes how to update a bot to work with **named pipes**, and how to enable the direct line app service extension in the **Azure App Service** resource where the bot is hosted.
+This article describes how to update a bot to work with **named pipes**, and how to enable the direct line app service extension in the **Azure App Service** resource where the bot is hosted. Please, also read this companion article [Create .NET Client to Connect to Direct Line App Service Extension](bot-service-channel-directline-extension-net-client.md).
+
 
 ## Prerequisites
 
@@ -79,7 +80,7 @@ This section describes how to enable the direct line app service extension using
 1. If it is not already enabled, click on the **Direct Line** channel to enable it.
 1. If it is already enabled, in the Connect to channels table click on the **Edit** link on the Direct Line row.
 1. Scroll down to the App Service Extension Keys section.
-1. Click on the **Show link** to reveal one of the keys, then copy its value.
+1. Click on the **Show link** to reveal one of the keys, then copy ad save its value. You will use this value in the next section.
 
 ![App service extension keys](./media/channels/direct-line-extension-extension-keys.png)
 
@@ -91,8 +92,10 @@ This section describes how to enable the direct line app service extension using
 
     |Name|Value|
     |---|---|
-    |DirectLineExtensionKey|<App_Service_Extension_Key_From_Section_1>|
+    |DirectLineExtensionKey|<App_Service_Extension_Key>|
     |DIRECTLINE_EXTENSION_VERSION|latest|
+
+    Where the *App_Service_Extension_Key* is the value you saved earlier.
 
 1. Within the *Configuration* section, click on the **General** settings section and turn on **Web sockets**
 1. Click on **Save** to save the settings. This restarts the Azure App Service.
@@ -106,3 +109,8 @@ If everything is correct, the page will return this JSON content: `{"k":true,"ib
 - **initialized** determines whether Direct Line ASE can use the App Service Extension Key to download the bot metadata from Azure Bot Service
 - **ib** determines whether Direct Line ASE can establish an inbound connection with the bot.
 - **ob** determines whether Direct Line ASE can establish an outbound connection with the bot.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Create .NET Client](./bot-service-channel-directline-extension-net-client.md)

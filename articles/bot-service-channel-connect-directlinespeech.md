@@ -17,7 +17,7 @@ ms.author: travisw
 
 You can configure your bot to allow client applications to communicate with it through the Direct Line Speech channel.
 
-Once you have built your bot, onboarding it with Direct Line Speech will enable low latency, high reliability connection with client applications using the [Speech SDK](https://aka.ms/speech/sdk). These connections are optimized for voice in, voice out conversational experiences. For more information on Direct Line Speech and how to build client applications, visit the [custom voice-first virtual assistant](https://aka.ms/bots/speech/va) page. 
+Once you have built your bot, onboarding it with Direct Line Speech will enable low latency, high reliability connection with client applications using the [Speech SDK](https://aka.ms/speech-service-docs). These connections are optimized for voice in, voice out conversational experiences. For more information on Direct Line Speech and how to build client applications, visit the [custom voice-first virtual assistant](https://aka.ms/cognitive-services-voice-assistants) page.
 
 ## Add the Direct Line Speech channel
 
@@ -29,9 +29,20 @@ Once you have built your bot, onboarding it with Direct Line Speech will enable 
 
     ![selecting direct line speech channel](media/voice-first-virtual-assistants/bot-service-channel-directlinespeech-connectspeechchannel.png "connecting Direct Line Speech")
 
-1. Direct Line Speech Channel requires a Cognitive Services resource. You can either use an existing resource or create a new Cognitive Services resource following the [instructions](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account). 
+1. Configure the Direct Line Speech as shown in the picture below.
 
-    ![selecting direct line speech channel](media/voice-first-virtual-assistants/bot-service-channel-directlinespeech-cognitivesericesaccount-selection.png "selecting Cogntive Services resource")
+    ![selecting direct line speech channel](media/voice-first-virtual-assistants/bot-service-channel-directlinespeech-cognitivesericesaccount-selection.png "selecting Cognitive Services resource")
+
+    The Direct Line Speech Channel requires a Cognitive Services resource, specifically a **speech** cognitive service resource. You can either use an existing resource or create a new one. To create a new speech resource follow these steps:
+
+    - Go to the [Azure portal create resources](https://ms.portal.azure.com/#create/hub).
+    - Search for *Speech* and select it from the drop-down list. The following is displayed:
+
+        ![create speech cognitive resource](media/voice-first-virtual-assistants/create-speech-cognitive-resource.PNG "Create speech cognitive resource")
+
+    - Follow the wizard steps.
+
+    For additional information, see [Create a Cognitive Services resource](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
 
 1. Once you've reviewed the terms of use, click `Save` to confirm your channel selection.
 
@@ -41,7 +52,7 @@ Once you have built your bot, onboarding it with Direct Line Speech will enable 
 
 With the Direct Line Speech channel connected to your bot, you now need to enable Bot Framework Protocol Streaming Extensions support for optimal, low-latency interaction.
 
-1. If you haven't already, open the blade for your bot in the [Azure Portal](https://portal.azure.com). 
+1. If you haven't already, open the blade for your bot in the [Azure Portal](https://portal.azure.com).
 
 1. Click on **Settings** under the **Bot Management** category (right below **Channels**). Click the checkbox for **Enable Streaming Endpoint**.
 

@@ -139,7 +139,7 @@ This class inherits from the v4 `BotState` class, and uses a v3-style key (`IAdd
 - [Write directly to storage][8]
 - [Managing conversation and user state][9]
 
-[3]: https://aka.ms/botframework-emulator
+[3]: https://aka.ms/botframework-emulator-github
 [5]: https://github.com/microsoft/botframework-emulator
 [6]: https://github.com/Microsoft/BotFramework-Emulator/releases
 [7]: https://docs.microsoft.com/azure/bot-service/bot-builder-storage-concept

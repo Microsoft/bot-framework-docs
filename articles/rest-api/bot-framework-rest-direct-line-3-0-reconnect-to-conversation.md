@@ -6,7 +6,7 @@ ms.author: kamrani
 manager: kamrani
 ms.topic: article
 ms.service: bot-service
-ms.date: 2/09/2019
+ms.date: 2/20/2020
 ---
 
 # Reconnect to a conversation
@@ -22,7 +22,7 @@ GET https://directline.botframework.com/v3/directline/conversations/{conversatio
 Authorization: Bearer SECRET_OR_TOKEN
 ```
 
-In this request URI, replace **{conversationId}** with the conversation ID and replace **{watermark_value}** with the watermark value (if the `watermark` parameter is supplied). The `watermark` parameter is optional. If the `watermark` parameter is specified in the request URI, the conversation replays from the watermark, guaranteeing that no messages are lost. If the `watermark` parameter is omitted from the request URI, only messages received after the reconnection request are replayed.
+In this request URI, replace **{conversationId}** with the conversation ID and replace **{watermark_value}** with the watermark value (if the `watermark` parameter is available). The `watermark` parameter is optional. If the `watermark` parameter is specified in the request URI, the conversation replays from the watermark, guaranteeing that no messages are lost. If the `watermark` parameter is omitted from the request URI, only messages received after the reconnection request are replayed.
 
 The following snippets provide an example of the Reconnect request and response.
 
@@ -54,7 +54,7 @@ HTTP/1.1 200 OK
 
 The client must use the new WebSocket stream URL to [reconnect to the conversation](bot-framework-rest-direct-line-3-0-receive-activities.md#connect-via-websocket) within 60 seconds. If the connection cannot be established during this time, the client must issue another Reconnect request to generate a new stream URL.
 
-If you have "Enhanced authentication option" enabled in the Direct Line settings, you might get a 400 "MissingProperty" error saying no user ID specified.
+If you have "Enhanced authentication option" enabled in the Direct Line settings, you might get a 400 "MissingProperty" error if you don't have a correctly configured token attached to the request. 
 
 ## Additional resources
 

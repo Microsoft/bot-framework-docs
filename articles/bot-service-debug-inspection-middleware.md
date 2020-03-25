@@ -31,13 +31,15 @@ To check the version of your emulator, select **Help** -> **About** in the menu.
 ## Update your bot's code
 
 # [C#](#tab/csharp)
-Set up the inspection state in the **Startup** file. Add the inspection middleware to the adapter. The inspection state is provided through dependency injection. See the code update below or refer to the inspection sample here: [C#](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/47.inspection). 
+Set up the inspection state and add the inspection middleware to the adapter in the **Startup.cs** file. The inspection state is provided through dependency injection. See the code update below or refer to the inspection sample here: [C#](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/47.inspection). 
 
 **Startup.cs**  
 [!code-csharp [inspection bot sample](~/../botbuilder-samples/samples/csharp_dotnetcore/47.inspection/Startup.cs?range=17-37)]
 
 **AdapterWithInspection.cs**  
 [!code-csharp [inspection bot sample](~/../botbuilder-samples/samples/csharp_dotnetcore/47.inspection/AdapterwithInspection.cs?range=11-37)]
+
+Update the bot class in the **EchoBot.cs** file.
 
 **EchoBot.cs**  
 [!code-csharp [inspection bot sample](~/../botbuilder-samples/samples/csharp_dotnetcore/47.inspection/Bots/EchoBot.cs?range=14-43)]
@@ -59,7 +61,7 @@ Set up the inspection state and add the inspection middleware to the adapter in 
 
 Update the bot class in the **bot.js** file. 
 
-[!code-javascript [inspection bot sample](~/../botbuilder-samples/samples/javascript_nodejs/47.inspection/bot.js?range=6-50)]
+[!code-javascript [inspection bot sample](~/../botbuilder-samples/samples/javascript_nodejs/47.inspection/bot.js?range=6-52)]
 
 # [Python](#tab/python)
 Before updating your bot's code run install the necessary PyPI packages by running the following commands in a terminal:

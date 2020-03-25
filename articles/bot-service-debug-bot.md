@@ -105,7 +105,7 @@ First, open a command prompt and navigate to the folder where the **project.json
 > Visual Studio 2017 changes how Visual Studio handles dependencies. 
 > While Visual Studio 2015 uses **project.json** to handle dependencies, 
 > Visual Studio 2017 uses a **.csproj** model when loading in Visual Studio. 
-> If you are using Visual Studio 2017, <a href="https://aka.ms/bf-debug-project">download this **.csproj** file</a> 
+> If you are using Visual Studio 2017, download this [**.csproj** file](https://aka.ms/v3-dotnet-debug-csproj)
 > to the **/messages** folder in your repository before you run the `dotnet restore` command.
 
 ![Command prompt](~/media/bot-service-debug-bot/csharp-azureservice-debug-envconfig.png)

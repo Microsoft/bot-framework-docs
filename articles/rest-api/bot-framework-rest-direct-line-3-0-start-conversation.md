@@ -15,7 +15,7 @@ Direct Line conversations are explicitly opened by clients and may run as long a
 
 ## Open a new conversation
 
-To open a new conversation with a bot, issue this request:
+To open a new conversation from your client, issue POST to the /v3/directline/conversations endpoint.
 
 ```http
 POST https://directline.botframework.com/v3/directline/conversations
@@ -58,7 +58,7 @@ Typically, a Start Conversation request is used to open a new conversation and a
 
 The Start Conversation operation (`POST /v3/directline/conversations`) is similar to the [Generate Token](bot-framework-rest-direct-line-3-0-authentication.md#generate-token) operation (`POST /v3/directline/tokens/generate`) in that both operations return a `token` that can be used to access a single conversation. However, the Start Conversation operation also starts the conversation, contacts the bot, and creates a WebSocket stream URL, whereas the Generate Token operation does none of these things. 
 
-If you intend to start the conversation immediately, use the Start Conversation operation. If you plan to distribute the token to clients and want them to initiate the conversation, use the [Generate Token](bot-framework-rest-direct-line-3-0-authentication.md#generate-token) operation instead. 
+If you intend to start the conversation immediately with your client, use the Start Conversation operation. If you plan to distribute the token to clients and want them to initiate the conversation, use the [Generate Token](bot-framework-rest-direct-line-3-0-authentication.md#generate-token) operation instead. 
 
 ## Additional resources
 

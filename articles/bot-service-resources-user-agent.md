@@ -10,7 +10,7 @@ ms.date: 12/13/2017
 ---
 # Bot Framework User-Agent requests
 
-If you’re reading this message, you’ve probably received a request from a Microsoft Bot Framework service. This guide will help you understand the nature of these requests and provide steps to stop them, if so desired.
+If you’re reading this message, you may have received a request from a Microsoft Bot Framework service. This guide will help you understand the nature of these requests and provide steps to stop them, if so desired.
 
 If you received a request from our service, it likely had a User-Agent header formatted similar to the string below:
 

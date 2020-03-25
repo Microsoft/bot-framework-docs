@@ -82,5 +82,5 @@ The Custom Assistant extends across a broad number of industry scenarios, exampl
 
 ## Getting Started
 
-At this time we are running an initial preview and working closely with initial customers and partners in an open-source repository to bring to life the first experiences and make it available more broadly in the coming months. To register your interest and get started please fill in [this form](https://aka.ms/customassistantpreviewform) and we'll be in touch.
+At this time we are running an initial preview and working closely with initial customers and partners in an open-source repository to bring to life the first experiences and make it available more broadly in the coming months. To register your interest and get started please fill in [this form](https://aka.ms/va-scenario-submission-form) and we'll be in touch.
 

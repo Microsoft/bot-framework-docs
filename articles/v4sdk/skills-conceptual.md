@@ -20,10 +20,10 @@ Starting with version 4.7 of the Bot Framework SDK, you can extend a bot using a
 A skill can be consumed by various other bots, facilitating reuse, and in this way, you can create a user-facing bot and extend it by consuming your own or 3rd party skills.
 
 <!-- Terminology -->
-- A _skill_ is a bot that can perform a set of tasks for another bot and uses a manifest to describe its interface.
+- A _skill_ is a bot that can perform a set of tasks for another bot.
   Depending on design, a skill can also function as a typical, user-facing bot.
 - A _skill consumer_ is a bot that can invoke one or more skills. With respect to skills, a _root bot_ is a user-facing bot that is also a skill consumer.
-- A _skill manifest_ is a JSON file that describes the activities the skill can perform, its input and output parameters, and the skill's endpoints.
+- A _skill manifest_ is a JSON file that describes the actions the skill can perform, its input and output parameters, and the skill's endpoints.
   - Developers who don't have access to the skill's source code can use the information in the manifest to design their skill consumer. See how to [implement a skill](./skill-implement-skill.md) for a sample skill manifest.
   - The _skill manifest schema_ is a JSON file that describes the schema of the skill manifest. The current version is [skill-manifest-2.0.0.json](https://github.com/microsoft/botframework-sdk/blob/master/schemas/skills/skill-manifest-2.0.0.json).
 
@@ -34,12 +34,13 @@ The skills feature is designed so that:
 
 - Skills can work with both the Bot Framework adapter and custom adapters.
 - Skills can work with the Microsoft Teams channel, which makes heavy use of `invoke` activities.
-- Skills support user authentication; however, user authentication is local to the skill and cannot be transferred to another bot.
+- Skills support user authentication; however, user authentication is local to the skill or skill consumer and cannot be transferred to another bot.
 - A skill consumer can consume multiple skills.
 - A skill consumer can run multiple skills in parallel.
+- A skill consumer can consume a skill regardless of the language or SDK version of the skill.
 - The Bot Connector service provides bot-to-bot authentication; however, you can test a root bot locally using the Emulator.
+- A skill can also be a skill consumer. Connecting through multiple skills will add network latency and the potential for error. Such bots are more complex and can be more difficult to debug.
 <!--TBD: - Skills support proactive messaging. -->
-<!--TBD: - A skill can also be a skill consumer. -->
 
 ## Architecture
 
@@ -203,6 +204,24 @@ Specific scenarios to consider include:
   - To check why the skill is ending, check the activity's _code_ parameter, which could indicate that the skill encountered an error.
 - Cancelling a skill from the consumer by sending an `endOfConversation` activity to the skill.
 
+#### Invoking a skill from a dialog
+
+If you are using the [dialogs library](bot-builder-concept-dialog.md), you can use a _skill dialog_ to manage a skill. While the skill dialog is the active dialog, it will forward activities to the associated skill.
+<!--Language-specific Notes:
+- C#: SkillDialog, SkillDialogOptions, SkillDialogArgs
+  - public SkillDialog(SkillDialogOptions dialogOptions, string dialogId = null)
+- JS: SkillDialog, SkillDialogOptions, BeginSkillDialogOptions
+  - public constructor(dialogOptions: SkillDialogOptions, dialogId?: string)
+- Py (WIP): SkillDialog, SkillDialogOptions, SkillDialogArgs
+  - def __init__(self, dialog_options: SkillDialogOptions, conversation_state: ConversationState)
+-->
+
+- When you create the skill dialog, use the _dialog options_ parameter to provide all the information the dialog needs to manage the skill, such as the consumer's app ID and callback URL, the conversation ID factory to use, the skill's properties, and so on.
+  - If you want to manage more than one skill as a dialog, you will need to create a separate skill dialog for each skill.
+  - Often, you will add the skill dialog to a component dialog.
+- To start the skill dialog, use the dialog context's _begin_ method and provide the skill dialog's ID. Use the _options_ parameter to provide the activity the consumer will send as the first activity to the skill.
+- You can cancel or interrupt the skill dialog as you would any other dialog. See how to [handle user interruptions](bot-builder-howto-handle-user-interrupt.md) for an example.
+
 ## Skill bots
 
 With minor modifications, any bot can act as a skill. Skill bots:
@@ -213,6 +232,10 @@ With minor modifications, any bot can act as a skill. Skill bots:
 - Signal skill completion or cancellation via an `endOfConversation` activity.
   - Provide the return value, if any, in the activity's _value_ property.
   - Provide an error code, if any, in the activity's _code_ property.
+
+### Skill activities
+
+ Some skills can perform a variety of tasks or _activities_. For example, a to-do skill might allow create, update, view, and delete activities that can be accessed as discrete conversations. <!--TODO Flesh this out-->
 
 ### Skill manifest
 

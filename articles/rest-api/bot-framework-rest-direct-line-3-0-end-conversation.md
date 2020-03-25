@@ -14,13 +14,11 @@ ms.date: 12/13/2017
 The **endOfConversation** [activity](https://aka.ms/botSpecs-activitySchema) means the channel or bot has ended the conversation. 
 
 > [!NOTE] 
-> While the **endOfConversation** event is only sent by very few channels, the Cortana channel is the only one that accepts it. Other channels, including Direct Line, do not implement this functionality and instead drop or forward the activity on; each channel determines how to react to an endOfConversation activity. If you are designing a DirectLine client, you would update the client to behave appropriately, such as generating an error if the bot sent an activity to a conversation that has already ended.
+> While the **endOfConversation** event is only sent by very few channels, the Cortana channel is the only one that accepts it. Other channels, including Direct Line, do not implement this functionality and instead drop or forward the activity on; each channel determines how to react to an endOfConversation activity.
 
 ## Send an endOfConversation activity
 
-An **endOfConversation** activity ends communication between bot and client. After an **endOfConversation** activity has been sent, the client may still [retrieve messages](bot-framework-rest-direct-line-3-0-receive-activities.md#http-get) using `HTTP GET`, but neither the client nor the bot can send any additional messages to the conversation. 
-
-To end a conversation, simply issue a POST request to send an **endOfConversation** activity.
+To request to end a conversation with Cortana channel, POST End of Conversation Activity to the channel's messaging endpoint.
 
 ### Request
 
