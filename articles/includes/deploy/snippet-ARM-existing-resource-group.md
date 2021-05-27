@@ -37,4 +37,4 @@ az group deployment create --resource-group "<name-of-resource-group>" --templat
 - `botId` - A name for the  Bot Channels Registration resource to create. It must be globally unique. It is used as the immutable bot ID. It is also used as the default display name, which is mutable.
 - `newWebAppName` - A name for the bot application service.
 - `newAppServicePlanName` - A name for the application service plan resource to create.
-- `newAppServicePlanLocation` - The location of the application service plan.
+- `appServicePlanLocation` - The location of the application service plan.

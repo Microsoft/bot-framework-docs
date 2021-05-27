@@ -53,12 +53,12 @@ Make sure that you have the correct path to your bot project ARM deployment temp
 #### **Deploy via ARM template (with **new** Resource Group)**
 
 <!-- ##### Create Azure resources -->
-[!INCLUDE [ARM with new resourece group](~/includes/deploy/snippet-ARM-new-resource-group.md)]
+[!INCLUDE [ARM with new resource group](~/includes/deploy/snippet-ARM-new-resource-group.md)]
 
 
-#### **Deploy via ARM template (with **existing**  Resource Group)**
+#### **Deploy via ARM template (with **existing** Resource Group)**
 
-[!INCLUDE [ARM with existing resourece group](~/includes/deploy/snippet-ARM-existing-resource-group.md)]
+[!INCLUDE [ARM with existing resource group](~/includes/deploy/snippet-ARM-existing-resource-group.md)]
 
 ---
 
